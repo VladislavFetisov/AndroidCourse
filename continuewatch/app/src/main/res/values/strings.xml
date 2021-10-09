@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Continue Watch</string>
+    <string name="seconds_elapsed">SECONDS_ELAPSED</string>
+    <string name="sharedPref">shared_preferences</string>
+</resources>
