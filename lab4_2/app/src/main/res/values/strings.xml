@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lab4_2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="to_second">to_second</string>
+    <string name="to_first">to_first</string>
+    <string name="to_third">to_third</string>
+    <string name="activity_about">Это вот такая активити эбаут</string>
+    <string name="activity_1">Activity 1</string>
+    <string name="notning">Notning</string>
+    <string name="go_to_about_activity">go to about activity</string>
+    <string name="activity4_text">Теперь я родитель</string>
+    <string name="to_fourth">to_fourth</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
