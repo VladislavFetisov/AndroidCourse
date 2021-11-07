@@ -40,7 +40,7 @@
             android:name=".sub_task_3.Activity3_3"
             android:exported="true" />
         <activity
-            android:name=".sub_task_5.EmptyActivity"
+            android:name=".Activity1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

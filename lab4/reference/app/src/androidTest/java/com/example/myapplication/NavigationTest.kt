@@ -5,12 +5,16 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.NoActivityResumedException
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.hamcrest.CoreMatchers.not
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -134,22 +138,55 @@ class NavigationTest {
     }
 
     @Test
+    fun buttonUp() {
+        val scenario = launchActivity<MainActivity>()
+        testFirst(scenario)
+        onView(ViewMatchers.withId(R.id.bnToSecond))
+            .perform(click())
+        testSecond(scenario)
+        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
+            .perform(click())
+        testFirst(scenario)
+        onView(ViewMatchers.withId(R.id.bnToSecond))
+            .perform(click())
+        testSecond(scenario)
+        onView(ViewMatchers.withId(R.id.bnToThird))
+            .perform(click())
+        testThird(scenario)
+        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
+            .perform(click())
+        testSecond(scenario)
+        onView(ViewMatchers.withId(R.id.bnToThird))
+            .perform(click())
+        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
+            .perform(click())
+        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
+            .perform(click())
+        testFirst(scenario)
+        try {
+            onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
+                .perform(click())
+        } catch (ignored: NoMatchingViewException) {
+        }
+    }
+
+    @Test
     fun allNavigation() {
         val scenario = launchActivity<MainActivity>()
         testFirst(scenario)
-        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(click())
         testSecond(scenario)
-        onView(ViewMatchers.withId(R.id.bnToFirst)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToFirst)).perform(click())
         testFirst(scenario)
-        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(click())
         testSecond(scenario)
-        onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToThird)).perform(click())
         testThird(scenario)
-        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(click())
         testSecond(scenario)
-        onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToThird)).perform(click())
         testThird(scenario)
-        onView(ViewMatchers.withId(R.id.bnToFirst)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToFirst)).perform(click())
         testFirst(scenario)
         try {
             pressBackUnconditionally()
@@ -162,17 +199,17 @@ class NavigationTest {
     fun testBackPress() {
         val scenario = launchActivity<MainActivity>()
         testFirst(scenario)
-        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(click())
         testSecond(scenario)
         pressBack()
         testFirst(scenario)
-        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToSecond)).perform(click())
         testSecond(scenario)
-        onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToThird)).perform(click())
         testThird(scenario)
         pressBack()
         testSecond(scenario)
-        onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.bnToThird)).perform(click())
         pressBack()
         testSecond(scenario)
         pressBack()
