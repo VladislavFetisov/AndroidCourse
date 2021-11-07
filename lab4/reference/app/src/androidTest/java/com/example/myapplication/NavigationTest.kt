@@ -1,21 +1,17 @@
 package com.example.myapplication
 
 import android.content.pm.ActivityInfo
-import android.util.Log
-import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.Navigation
-import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.core.app.launchActivity
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.NoActivityResumedException
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import junit.framework.Assert.assertEquals
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -84,10 +80,18 @@ class NavigationTest {
     private fun testFirst(scenario: ActivityScenario<MainActivity>) {
         onView(ViewMatchers.withId(R.id.fragment1))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.fragment2))
+            .check(doesNotExist())
+        onView(ViewMatchers.withId(R.id.fragment3))
+            .check(doesNotExist())
         testAbout(scenario)
         pressBack()
         onView(ViewMatchers.withId(R.id.fragment1))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.fragment2))
+            .check(doesNotExist())
+        onView(ViewMatchers.withId(R.id.fragment3))
+            .check(doesNotExist())
         testRotation(R.id.fragment1, scenario)
     }
 
@@ -95,10 +99,18 @@ class NavigationTest {
     private fun testSecond(scenario: ActivityScenario<MainActivity>) {
         onView(ViewMatchers.withId(R.id.fragment2))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.fragment3))
+            .check(doesNotExist())
+        onView(ViewMatchers.withId(R.id.fragment1))
+            .check(doesNotExist())
         testAbout(scenario)
         pressBackUnconditionally()
         onView(ViewMatchers.withId(R.id.fragment2))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.fragment3))
+            .check(doesNotExist())
+        onView(ViewMatchers.withId(R.id.fragment1))
+            .check(doesNotExist())
         testRotation(R.id.fragment2, scenario)
     }
 
@@ -106,10 +118,18 @@ class NavigationTest {
     private fun testThird(scenario: ActivityScenario<MainActivity>) {
         onView(ViewMatchers.withId(R.id.fragment3))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.fragment1))
+            .check(doesNotExist())
+        onView(ViewMatchers.withId(R.id.fragment2))
+            .check(doesNotExist())
         testAbout(scenario)
         pressBackUnconditionally()
         onView(ViewMatchers.withId(R.id.fragment3))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.fragment1))
+            .check(doesNotExist())
+        onView(ViewMatchers.withId(R.id.fragment2))
+            .check(doesNotExist())
         testRotation(R.id.fragment3, scenario)
     }
 
