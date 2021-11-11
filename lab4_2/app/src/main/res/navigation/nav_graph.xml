@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment15">
+    app:startDestination="@id/fragment1">
+    <activity
+        android:id="@+id/activityAbout"
+        android:name="com.example.lab4_2.ActivityAbout"
+        android:label="activity_about"
+        tools:layout="@layout/activity_about" />
+
     <fragment
         android:id="@+id/fragment2"
         android:name="com.example.lab4_2.sub_task_5.Fragment2"
@@ -11,7 +17,7 @@
         tools:layout="@layout/fragment_2" >
         <action
             android:id="@+id/action_fragment2_to_fragment1"
-            app:destination="@id/fragment15"
+            app:destination="@id/fragment1"
             app:launchSingleTop="true"
             app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="true"/>
@@ -19,11 +25,11 @@
             android:id="@+id/action_fragment2_to_fragment3"
             app:destination="@id/fragment3" />
         <action
-            android:id="@+id/action_fragment2_to_activityAbout2"
-            app:destination="@id/activityAbout2" />
+            android:id="@+id/action_fragment2_to_activityAbout"
+            app:destination="@id/activityAbout" />
     </fragment>
     <fragment
-        android:id="@+id/fragment15"
+        android:id="@+id/fragment1"
         android:name="com.example.lab4_2.sub_task_5.Fragment1"
         android:label="fragment_1"
         tools:layout="@layout/fragment_1" >
@@ -31,8 +37,8 @@
             android:id="@+id/action_fragment1_to_fragment2"
             app:destination="@id/fragment2" />
         <action
-            android:id="@+id/action_fragment15_to_activityAbout2"
-            app:destination="@id/activityAbout2" />
+            android:id="@+id/action_fragment1_to_activityAbout"
+            app:destination="@id/activityAbout" />
     </fragment>
     <fragment
         android:id="@+id/fragment3"
@@ -46,18 +52,14 @@
             app:launchSingleTop="true"
             app:popUpToInclusive="true"/>
         <action
-            android:id="@+id/action_fragment3_to_fragment15"
-            app:destination="@id/fragment15"
+            android:id="@+id/action_fragment3_to_fragment1"
+            app:destination="@id/fragment1"
             app:popUpTo="@+id/nav_graph"
             app:launchSingleTop="true"
             app:popUpToInclusive="true"/>
         <action
-            android:id="@+id/action_fragment3_to_activityAbout2"
-            app:destination="@id/activityAbout2" />
+            android:id="@+id/action_fragment3_to_activityAbout"
+            app:destination="@id/activityAbout" />
     </fragment>
-    <activity
-        android:id="@+id/activityAbout2"
-        android:name="com.example.lab4_2.ActivityAbout"
-        android:label="activity_about"
-        tools:layout="@layout/activity_about" />
+
 </navigation>

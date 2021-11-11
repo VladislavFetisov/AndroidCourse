@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity2 extends AppCompatActivity {
@@ -20,11 +21,10 @@ public class Activity2 extends AppCompatActivity {
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     Intent intent = result.getData();
-                    if (intent.getBooleanExtra(String.valueOf(STOP_SECOND),false)) {
+                    if (intent.getBooleanExtra(String.valueOf(STOP_SECOND), false)) {
                         finish();
                     }
-                }
-                else{
+                } else {
                     Log.e("ERROR", "RESULT CODE IS NOT OK!");
                 }
             });
@@ -41,13 +41,16 @@ public class Activity2 extends AppCompatActivity {
 
 
         findViewById(R.id.to_first2).setOnClickListener(v -> finish());
+        setupActionBar();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.go_to_about) {
@@ -56,5 +59,20 @@ public class Activity2 extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // Show the Up button in the action bar.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

@@ -26,11 +26,11 @@ public class Fragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_3, container, false);
-        rootView.findViewById(R.id.to_secondFragment).setOnClickListener(v -> {
+        rootView.findViewById(R.id.to_second3).setOnClickListener(v -> {
             NavHostFragment.findNavController(Fragment3.this).navigate(R.id.action_fragment3_to_fragment2);
         });
-        rootView.findViewById(R.id.to_firstFragment2).setOnClickListener(v -> {
-            NavHostFragment.findNavController(Fragment3.this).navigate(R.id.action_fragment3_to_fragment15);
+        rootView.findViewById(R.id.to_first3).setOnClickListener(v -> {
+            NavHostFragment.findNavController(Fragment3.this).navigate(R.id.action_fragment3_to_fragment1);
         });
         return rootView;
     }
@@ -43,9 +43,10 @@ public class Fragment3 extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.go_to_about) {
-            NavHostFragment.findNavController(Fragment3.this).navigate(R.id.activityAbout2);
+            NavHostFragment.findNavController(Fragment3.this).navigate(R.id.activityAbout);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

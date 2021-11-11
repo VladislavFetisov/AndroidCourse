@@ -1,9 +1,6 @@
 package com.example.lab4_2.sub_task_5;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,11 +11,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.lab4_2.Activity1;
-import com.example.lab4_2.ActivityAbout;
 import com.example.lab4_2.R;
 
 
@@ -34,7 +28,7 @@ public class Fragment1 extends Fragment   {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_1, container, false);
 
-        rootView.findViewById(R.id.to_secondFragment1).setOnClickListener(v -> {
+        rootView.findViewById(R.id.to_second).setOnClickListener(v -> {
             NavHostFragment.findNavController(Fragment1.this).navigate(R.id.fragment2);
         });
         return rootView;
@@ -49,7 +43,7 @@ public class Fragment1 extends Fragment   {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.go_to_about) {
-            NavHostFragment.findNavController(Fragment1.this).navigate(R.id.activityAbout2);
+            NavHostFragment.findNavController(Fragment1.this).navigate(R.id.activityAbout);
             return true;
         }
         return super.onOptionsItemSelected(item);
