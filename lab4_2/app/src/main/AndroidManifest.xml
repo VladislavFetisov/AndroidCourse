@@ -31,10 +31,10 @@
         <activity
             android:name=".Activity2"
             android:exported="true" />
-        <activity
-            android:name=".sub_task_3.Activity3_1"
-            android:exported="true"
-            android:launchMode="singleTask"/>
+<!--        <activity-->
+<!--            android:name=".sub_task_3.Activity3_1"-->
+<!--            android:exported="true"-->
+<!--            android:launchMode="singleTask"/>-->
         <activity
             android:name=".sub_task_3.Activity3_2"
             android:exported="true" />

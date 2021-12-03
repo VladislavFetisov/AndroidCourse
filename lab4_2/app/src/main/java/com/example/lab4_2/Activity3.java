@@ -16,13 +16,13 @@ public class Activity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        findViewById(R.id.to_second3).setOnClickListener(v -> {
+        findViewById(R.id.bnToSecond).setOnClickListener(v -> {
             Intent data = new Intent();
             setResult(RESULT_OK, data);
             finish();
         });
 
-        findViewById(R.id.to_first3).setOnClickListener(v -> {
+        findViewById(R.id.bnToFirst).setOnClickListener(v -> {
             Intent data = new Intent();
             data.putExtra(String.valueOf(Activity2.STOP_SECOND), true);
             setResult(RESULT_OK, data);

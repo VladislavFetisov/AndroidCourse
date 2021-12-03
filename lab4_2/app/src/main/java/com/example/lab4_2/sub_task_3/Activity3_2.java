@@ -1,15 +1,11 @@
 package com.example.lab4_2.sub_task_3;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,12 +20,12 @@ public class Activity3_2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        findViewById(R.id.to_third2).setOnClickListener(v -> {
+        findViewById(R.id.bnToThird).setOnClickListener(v -> {
             Intent intent = new Intent(Activity3_2.this, Activity3_3.class);
             startActivity(intent);
         });
 
-        findViewById(R.id.to_first2).setOnClickListener(v -> finish());
+        findViewById(R.id.bnToFirst).setOnClickListener(v -> finish());
         setupActionBar();
     }
 

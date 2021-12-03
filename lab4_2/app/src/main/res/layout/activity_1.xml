@@ -8,7 +8,7 @@
     android:id="@+id/activity1">
 
     <Button
-        android:id="@+id/to_second"
+        android:id="@+id/bnToSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"

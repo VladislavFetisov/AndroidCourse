@@ -53,7 +53,6 @@ class ExampleInstrumentedTest {
     }
 
 
-
     private fun testRotation(id: Int, scenario: ActivityScenario<EmptyActivity>) {
         scenario.onActivity { activity ->
             activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
@@ -104,19 +103,19 @@ class ExampleInstrumentedTest {
     fun allNavigation() {
         val scenario = launchActivity<EmptyActivity>()
         testFirst(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_first2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToFirst)).perform(ViewActions.click())
         testFirst(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_third2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
         testThird(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second3)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_third2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
         testThird(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_first3)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToFirst)).perform(ViewActions.click())
         testFirst(scenario)
         try {
             Espresso.pressBackUnconditionally()
@@ -124,23 +123,24 @@ class ExampleInstrumentedTest {
 
         }
     }
+
     @Test
     fun buttonUp() {
         val scenario = launchActivity<EmptyActivity>()
         testFirst(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
         Espresso.onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
             .perform(ViewActions.click())
         testFirst(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_third2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
         testThird(scenario)
         Espresso.onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
             .perform(ViewActions.click())
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_third2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
         Espresso.onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
             .perform(ViewActions.click())
         Espresso.onView(withContentDescription(R.string.nav_app_bar_navigate_up_description))
@@ -152,21 +152,22 @@ class ExampleInstrumentedTest {
         } catch (ignored: NoMatchingViewException) {
         }
     }
+
     @Test
     fun testBackPress() {
         val scenario = launchActivity<EmptyActivity>()
         testFirst(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
         Espresso.pressBack()
         testFirst(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_second)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToSecond)).perform(ViewActions.click())
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_third2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
         testThird(scenario)
         Espresso.pressBack()
         testSecond(scenario)
-        Espresso.onView(ViewMatchers.withId(R.id.to_third2)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.bnToThird)).perform(ViewActions.click())
         Espresso.pressBack()
         testSecond(scenario)
         Espresso.pressBack()

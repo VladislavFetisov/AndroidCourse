@@ -8,13 +8,14 @@
         android:id="@+id/activityAbout"
         android:name="com.example.lab4_2.ActivityAbout"
         android:label="activity_about"
-        tools:layout="@layout/activity_about" />
+        tools:layout="@layout/activity_about"
+        app:action="@+id/action_about"/>
 
     <fragment
         android:id="@+id/fragment2"
         android:name="com.example.lab4_2.sub_task_5.Fragment2"
         android:label="fragment_2"
-        tools:layout="@layout/fragment_2" >
+        tools:layout="@layout/fragment2" >
         <action
             android:id="@+id/action_fragment2_to_fragment1"
             app:destination="@id/fragment1"
@@ -24,27 +25,21 @@
         <action
             android:id="@+id/action_fragment2_to_fragment3"
             app:destination="@id/fragment3" />
-        <action
-            android:id="@+id/action_fragment2_to_activityAbout"
-            app:destination="@id/activityAbout" />
     </fragment>
     <fragment
         android:id="@+id/fragment1"
         android:name="com.example.lab4_2.sub_task_5.Fragment1"
         android:label="fragment_1"
-        tools:layout="@layout/fragment_1" >
+        tools:layout="@layout/fragment1" >
         <action
             android:id="@+id/action_fragment1_to_fragment2"
             app:destination="@id/fragment2" />
-        <action
-            android:id="@+id/action_fragment1_to_activityAbout"
-            app:destination="@id/activityAbout" />
     </fragment>
     <fragment
         android:id="@+id/fragment3"
         android:name="com.example.lab4_2.sub_task_5.Fragment3"
         android:label="fragment_3"
-        tools:layout="@layout/fragment_3" >
+        tools:layout="@layout/fragment3" >
         <action
             android:id="@+id/action_fragment3_to_fragment2"
             app:destination="@id/fragment2"
@@ -57,9 +52,6 @@
             app:popUpTo="@+id/nav_graph"
             app:launchSingleTop="true"
             app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_fragment3_to_activityAbout"
-            app:destination="@id/activityAbout" />
     </fragment>
 
 </navigation>

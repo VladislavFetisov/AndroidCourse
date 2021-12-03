@@ -14,7 +14,7 @@ public class Activity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
-        findViewById(R.id.to_second).setOnClickListener(v -> {
+        findViewById(R.id.bnToSecond).setOnClickListener(v -> {
             Intent intent=new Intent(Activity1.this,Activity2.class);
             startActivity(intent);
         });

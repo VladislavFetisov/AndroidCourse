@@ -4,29 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sub_task_5.Fragment3">
+    tools:context=".sub_task_5.Fragment1"
+    android:id="@id/fragment1">
 
     <Button
-        android:id="@+id/to_secondFragment"
+        android:id="@+id/bnToSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp">
-    </Button>
-
-    <Button
-        android:id="@+id/to_firstFragment2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/to_first"
-        app:layout_constraintTop_toBottomOf="@id/to_secondFragment"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
     </Button>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

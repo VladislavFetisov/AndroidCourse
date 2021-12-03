@@ -19,10 +19,10 @@ public class Activity3_3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        findViewById(R.id.to_second3).setOnClickListener(v -> {
+        findViewById(R.id.bnToSecond).setOnClickListener(v -> {
             finish();
         });
-        findViewById(R.id.to_first3).setOnClickListener(v -> {
+        findViewById(R.id.bnToFirst).setOnClickListener(v -> {
             Intent a = new Intent(this, Activity3_1.class);
             a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(a);

@@ -34,13 +34,13 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-        findViewById(R.id.to_third2).setOnClickListener(v -> {
+        findViewById(R.id.bnToThird).setOnClickListener(v -> {
             Intent intent = new Intent(Activity2.this, Activity3.class);
             mStartForResult.launch(intent);
         });
 
 
-        findViewById(R.id.to_first2).setOnClickListener(v -> finish());
+        findViewById(R.id.bnToFirst).setOnClickListener(v -> finish());
         setupActionBar();
     }
 
