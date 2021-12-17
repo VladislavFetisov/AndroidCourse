@@ -11,9 +11,8 @@ import java.util.concurrent.*
 class SolveByExecutors : AppCompatActivity() {
     var secondsElapsed: Int = 0
     lateinit var textSecondsElapsed: TextView
-    private val executor1: ScheduledExecutorService = Executors.newScheduledThreadPool(1)
     private lateinit var increment: ScheduledFuture<*>
-
+    private lateinit var app: MyApplication
     override fun onSaveInstanceState(outState: Bundle) {
         outState.run {
             putInt("SECONDS_ELAPSED", secondsElapsed)
@@ -35,6 +34,7 @@ class SolveByExecutors : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         textSecondsElapsed = findViewById(R.id.textSecondsElapsed)
         Log.println(Log.ASSERT, "info", "i was created")
+        app = MyApplication()
     }
 
 
@@ -46,18 +46,12 @@ class SolveByExecutors : AppCompatActivity() {
                 textSecondsElapsed.setText("Seconds elapsed: " + secondsElapsed++)
             }
         }
-        increment = executor1.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS)
+        increment = app.getExecutor().scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS)
     }
 
     override fun onPause() {
         super.onPause()
         increment.cancel(true)
         Log.println(Log.ASSERT, "info", "i was paused")
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        executor1.shutdownNow()
     }
 }

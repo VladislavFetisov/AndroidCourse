@@ -20,7 +20,9 @@ class ImageViewModelCoroutines : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val newurl = URL(IMAGE_LINK)
             val bitmap = BitmapFactory.decodeStream(newurl.openConnection().getInputStream())
-            image.postValue(bitmap)
+            viewModelScope.launch(Dispatchers.Main) {
+                image.value = bitmap
+            }
         }
     }
 
@@ -28,5 +30,6 @@ class ImageViewModelCoroutines : ViewModel() {
         downloadImage()
         return image
     }
+
 }
 

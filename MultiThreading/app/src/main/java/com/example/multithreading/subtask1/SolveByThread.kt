@@ -57,7 +57,7 @@ class SolveByThread : AppCompatActivity() {
                 try {
                     Thread.sleep(1000)
                     textSecondsElapsed.post {
-                        textSecondsElapsed.setText("Seconds elapsed: " + secondsElapsed++)
+                        textSecondsElapsed.text = "Seconds elapsed: " + secondsElapsed++
                     }
                 } catch (e: InterruptedException) {
                     Thread.currentThread().interrupt()

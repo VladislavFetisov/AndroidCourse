@@ -1,12 +1,13 @@
 package com.example.multithreading.subtask3
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.multithreading.R
 
-class DownloadImageWithCour :AppCompatActivity() {
+class DownloadImageWithCour : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.image_downloading)

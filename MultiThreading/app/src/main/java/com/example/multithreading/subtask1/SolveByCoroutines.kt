@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.example.multithreading.R
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.concurrent.*
@@ -22,12 +23,10 @@ class SolveByCoroutines : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lifecycleScope.launchWhenResumed {
-            Thread.currentThread().name="thread ${Thread.currentThread().id}"
+            Thread.currentThread().name = "thread ${Thread.currentThread().id}"
             while (!Thread.currentThread().isInterrupted) {
                 delay(1000)
-                textSecondsElapsed.post {
-                    textSecondsElapsed.setText("Seconds elapsed: " + secondsElapsed++)
-                }
+                textSecondsElapsed.text = "Seconds elapsed: " + secondsElapsed++
             }
         }
         textSecondsElapsed = findViewById(R.id.textSecondsElapsed)
