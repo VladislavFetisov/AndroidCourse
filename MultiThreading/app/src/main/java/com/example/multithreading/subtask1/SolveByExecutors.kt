@@ -12,7 +12,6 @@ class SolveByExecutors : AppCompatActivity() {
     var secondsElapsed: Int = 0
     lateinit var textSecondsElapsed: TextView
     private lateinit var increment: ScheduledFuture<*>
-    private lateinit var app: MyApplication
     override fun onSaveInstanceState(outState: Bundle) {
         outState.run {
             putInt("SECONDS_ELAPSED", secondsElapsed)
@@ -34,7 +33,6 @@ class SolveByExecutors : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         textSecondsElapsed = findViewById(R.id.textSecondsElapsed)
         Log.println(Log.ASSERT, "info", "i was created")
-        app = MyApplication()
     }
 
 
@@ -43,10 +41,11 @@ class SolveByExecutors : AppCompatActivity() {
         Log.println(Log.ASSERT, "info", "i was resumed")
         val task = Runnable {
             textSecondsElapsed.post {
-                textSecondsElapsed.setText("Seconds elapsed: " + secondsElapsed++)
+                textSecondsElapsed.text = "Seconds elapsed: " + secondsElapsed++
             }
         }
-        increment = app.getExecutor().scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS)
+        increment = (application as MyApplication).getExecutor()
+            .scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS)
     }
 
     override fun onPause() {

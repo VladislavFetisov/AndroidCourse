@@ -6,7 +6,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 
 class MyApplication : Application() {
-    private  val executor1: ScheduledExecutorService = Executors.newScheduledThreadPool(1)
+    private val executor1: ScheduledExecutorService = Executors.newScheduledThreadPool(1)
 
     fun getExecutor(): ScheduledExecutorService {
         return executor1
